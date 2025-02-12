@@ -14,20 +14,17 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up GCC
-      run: sudo apt-get install -y gcc
-
     - name: yt-dlp
       run: sudo apt-get install -y yt-dlp
 
-    - name: Compile hello.c
-      run: gcc hello.c -o hello
+    - name: download video
+      run: yt-dlp -o foo https://www.youtube.com/watch?v=C4Rg3CrNGKw
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: hello
-        path: hello
+        name: foo
+        path: foo
     - name: upload binaries to release
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
