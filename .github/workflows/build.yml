@@ -18,7 +18,7 @@ jobs:
       run: sudo apt-get install -y yt-dlp
 
     - name: download video
-      run: yt-dlp -o foo https://www.youtube.com/watch?v=C4Rg3CrNGKw
+      run: yt-dlp --sleep-requests 1.5 --min-sleep-interval 60 --max-sleep-interval 90 -o foo https://www.youtube.com/watch?v=C4Rg3CrNGKw
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
