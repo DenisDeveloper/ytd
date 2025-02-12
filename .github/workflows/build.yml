@@ -25,3 +25,7 @@ jobs:
       with:
         name: hello
         path: hello
+    - name: upload binaries to release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: hello
